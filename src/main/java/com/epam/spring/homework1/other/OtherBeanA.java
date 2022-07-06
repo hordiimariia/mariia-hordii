@@ -9,8 +9,8 @@ public class OtherBeanA {
     private final BeanA beanA;
 
     @Autowired
-    public OtherBeanA(BeanA beanA) {
-        this.beanA = beanA;
+    public OtherBeanA(BeanA otherBeanA) {
+        this.beanA = otherBeanA;
         System.out.println(this.getClass().getSimpleName() + ". " + beanA.getClass().getSimpleName() + " was injected though the constructor");
     }
 }
