@@ -13,5 +13,9 @@ public class Main {
         for(String name: context.getBeanDefinitionNames()){
             System.out.println(name);
         }
+
+        System.out.println(context.getBean(BeanF.class));
+
+        ((AnnotationConfigApplicationContext) context).close();
     }
 }

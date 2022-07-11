@@ -1,6 +1,5 @@
 package com.epam.spring.homework2.beans;
 
-import com.epam.spring.homework2.beans.Bean;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
