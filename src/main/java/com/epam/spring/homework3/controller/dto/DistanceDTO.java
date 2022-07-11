@@ -14,6 +14,6 @@ public class DistanceDTO {
     private String from;
     @NotNull
     private String to;
-    @Positive 
+    @Positive
     private int distance;
 }

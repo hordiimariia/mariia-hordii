@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -45,7 +46,7 @@ public class DeliveryController {
     @ApiOperation("Create distance")
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/distance")
-    public DistanceDTO createDistance(@RequestBody DistanceDTO distanceDTO){
+    public DistanceDTO createDistance(@Valid @RequestBody DistanceDTO distanceDTO){
         return deliveryService.createDistance(distanceDTO);
     }
 
@@ -73,7 +74,7 @@ public class DeliveryController {
     @ApiOperation("Create order")
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/order")
-    public OrderDTO createOrder(OrderDTO orderDTO){
+    public OrderDTO createOrder(@Valid OrderDTO orderDTO){
         return deliveryService.createOrder(orderDTO);
     }
 

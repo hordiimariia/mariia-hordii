@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -28,19 +30,19 @@ public class UserController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/user")
-    public UserDTO createUser(@RequestBody UserDTO userDTO) {
+    public UserDTO createUser(@Valid @RequestBody UserDTO userDTO) {
         return userService.createUser(userDTO);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @PutMapping(value = "/user/{oldLogin}")
-    public UserDTO updateUserLogin(@PathVariable String oldLogin, @RequestBody UserDTO user) {
+    public UserDTO updateUserLogin(@PathVariable String oldLogin, @Valid @RequestBody UserDTO user) {
         return userService.updateUserLogin(oldLogin, user);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @PutMapping(value = "/user/{status}")
-    public UserDTO updateUserStatus(@RequestBody UserDTO userDTO, @RequestBody UserStatus status) {
+    public UserDTO updateUserStatus(@Valid @RequestBody UserDTO userDTO, @RequestBody UserStatus status) {
         return userService.updateUserStatus(userDTO, status);
     }
 
