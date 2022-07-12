@@ -2,6 +2,7 @@ package com.epam.spring.homework2.config;
 
 import com.epam.spring.homework2.beans.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
@@ -21,8 +22,8 @@ public class ConfigOne {
 
     @Bean(initMethod = "beanInit", destroyMethod = "beanDestroy")
     @DependsOn({"beanD"})
-    public BeanB beanB(){
-        return new BeanB(env.getProperty("beanB.name"), Integer.parseInt(env.getProperty("beanB.value", "0")));
+    public BeanB beanB(@Value("${beanB.name}") final String name, @Value("${beanB.value}") final int value){
+        return new BeanB(name, value);
     }
 
     @Bean(initMethod = "beanInit", destroyMethod = "beanDestroy")
