@@ -8,21 +8,16 @@ public class BeanA extends Bean implements InitializingBean, DisposableBean {
 
     public BeanA(String name, int value) {
         super(name, value);
-    }
-
-    public BeanA() {
         System.out.println(this);
     }
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         System.out.println("BeanA init from InitializingBean");
     }
 
     @Override
-    public void destroy() throws Exception {
+    public void destroy() {
         System.out.println("BeanA destroy from DisposableBean");
     }
-
-
 }

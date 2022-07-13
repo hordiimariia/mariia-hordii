@@ -9,12 +9,4 @@ public class BeanC extends Bean {
         super(name, value);
         System.out.println(this);
     }
-
-    private void beanInit() {
-        System.out.println("BeanC init from @Bean initMethod");
-    }
-
-    private void beanDestroy() {
-        System.out.println("BeanC destroy from @Bean destroyMethod");
-    }
 }

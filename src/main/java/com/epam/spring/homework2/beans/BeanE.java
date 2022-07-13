@@ -13,10 +13,6 @@ public class BeanE extends Bean {
         System.out.println(this);
     }
 
-    public BeanE() {
-        System.out.println(this);
-    }
-
     @PostConstruct
     public void postConstruct(){
         System.out.println("BeanE postConstruct method");

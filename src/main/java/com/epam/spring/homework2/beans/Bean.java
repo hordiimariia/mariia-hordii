@@ -9,9 +9,6 @@ public abstract class Bean {
         this.value = value;
     }
 
-    public Bean() {
-    }
-
     public String getName() {
         return name;
     }
@@ -30,7 +27,7 @@ public abstract class Bean {
 
     @Override
     public String toString() {
-        return this.getClass().getSimpleName() + " name = " + name + ", value = " + value;
+        return this.getClass().getSimpleName() + ": name = " + name + ", value = " + value;
     }
 
     public void validate() {
@@ -41,5 +38,14 @@ public abstract class Bean {
         if (value <= 0) {
             value = 1;
         }
+    }
+
+    private void beanInit() {
+        System.out.println(name + " init from @Bean initMethod");
+    }
+
+    private void beanDestroy() {
+
+        System.out.println(name + " destroy from @Bean destroyMethod");
     }
 }

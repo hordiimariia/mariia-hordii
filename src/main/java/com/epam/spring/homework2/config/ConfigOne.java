@@ -1,23 +1,18 @@
 package com.epam.spring.homework2.config;
 
 import com.epam.spring.homework2.beans.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 import org.springframework.context.annotation.Bean;
-import org.springframework.core.env.Environment;
 
 @Configuration
 @Import(ConfigTwo.class)
 @PropertySource("classpath:application.properties")
 public class ConfigOne {
 
-    @Autowired
-    private Environment env;
-
     @Bean
     public BeanA beanA(){
-        return new BeanA();
+        return new BeanA("beanA", 5);
     }
 
     @Bean(initMethod = "beanInit", destroyMethod = "beanDestroy")
@@ -28,23 +23,23 @@ public class ConfigOne {
 
     @Bean(initMethod = "beanInit", destroyMethod = "beanDestroy")
     @DependsOn({"beanD", "beanB"})
-    public BeanC beanC(){
-        return new BeanC(env.getProperty("beanC.name"), Integer.parseInt(env.getProperty("beanC.value", "0")));
+    public BeanC beanC(@Value("${beanC.name}") final String name, @Value("${beanC.value}") final int value){
+        return new BeanC(name, value);
     }
 
     @Bean(initMethod = "beanInit", destroyMethod = "beanDestroy")
-    public BeanD beanD(){
-        return new BeanD(env.getProperty("beanD.name"), Integer.parseInt(env.getProperty("beanD.value", "0")));
+    public BeanD beanD(@Value("${beanD.name}") final String name, @Value("${beanD.value}") final int value){
+        return new BeanD(name, value);
     }
 
     @Bean
     public BeanE beanE(){
-        return new BeanE();
+        return new BeanE("beanE", 1);
     }
 
     @Bean
     @Lazy
     public BeanF beanF(){
-        return new BeanF();
+        return new BeanF("beanF", 6);
     }
 }
