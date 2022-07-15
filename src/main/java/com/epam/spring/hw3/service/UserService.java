@@ -1,7 +1,6 @@
 package com.epam.spring.hw3.service;
 
 import com.epam.spring.hw3.dto.UserDTO;
-
 import java.util.List;
 
 public interface UserService {

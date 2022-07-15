@@ -7,7 +7,6 @@ import com.epam.spring.hw3.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,7 +14,6 @@ import java.util.stream.Collectors;
 @Component
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
-
     private final UserRepository userRepository;
 
     @Override

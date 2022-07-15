@@ -1,7 +1,6 @@
 package com.epam.spring.hw3.repository;
 
 import com.epam.spring.hw3.model.User;
-
 import java.util.List;
 
 public interface UserRepository {
