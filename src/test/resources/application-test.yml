@@ -1,0 +1,8 @@
+spring:
+  jpa:
+    show-sql: true
+
+app:
+  user:
+    password: test_password
+    login: test_firstlastname
